@@ -1,0 +1,67 @@
+﻿@model IndexViewModel
+@using versta.Helpers
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Идентификатор
+            </th>
+            <th>
+                Город отправителя
+            </th>
+            <th>
+                Адрес отправителя
+            </th>
+            <th>
+                Город получателя
+            </th>
+            <th>
+                Адресс получателя
+            </th>
+            <th>
+                Вес заказа(г)
+            </th>
+            <th>
+                Дата забора заказа
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var order in Model.Orders)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => order.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => order.SenderCity)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => order.SenderAddress)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => order.RecipientCity)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => order.RecipientAddress)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => order.Weight)
+                </td>
+                <td>
+                    @order.Date.ToString("MM/dd/yyyy")
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<br />
+<div class="btn-group">
+    @Html.PageLinks(Model.PageInfo, x => Url.Action("Index", new { page = x }))
+</div>

@@ -1,0 +1,53 @@
+﻿@model OrderViewModel
+
+<h2>Создать заказ</h2>
+
+<form asp-controller="Order" asp-action="Create" method="post" enctype="multipart/form-data" style="margin-top: 2em;">
+    <div class="form-row">
+        <div class="form-group col-md-4 col-sm-6 col-12">
+            <label asp-for="SenderCity"></label>
+            <input asp-for="SenderCity" class="form-control">
+            <span asp-validation-for="SenderCity" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-4 col-sm-6 col-12">
+            <label asp-for="SenderAddress"></label>
+            <input asp-for="SenderAddress" class="form-control">
+            <span asp-validation-for="SenderAddress" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-4 col-sm-6 col-12">
+            <label asp-for="RecipientCity"></label>
+            <input asp-for="RecipientCity" class="form-control">
+            <span asp-validation-for="RecipientCity" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-4 col-sm-6 col-12">
+            <label asp-for="RecipientAddress"></label>
+            <input asp-for="RecipientAddress" class="form-control">
+            <span asp-validation-for="RecipientAddress" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-4 col-sm-6 col-12">
+            <label asp-for="Weight"></label>
+            <input type="number" asp-for="Weight" class="form-control">
+            <span asp-validation-for="Weight" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-4 col-sm-6 col-12">
+            <label asp-for="Date"></label>
+            <input type="date" asp-for="Date" class="form-control">
+            <span asp-validation-for="Date" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <button type="submit" class="btn btn-outline-primary">Создать заказ</button>
+    </div>
+</form>
